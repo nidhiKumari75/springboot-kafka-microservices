@@ -1,6 +1,6 @@
 # 🚀 Spring Boot Kafka Microservices Project
 
-A microservices-based backend system using **Spring Boot**, **Apache Kafka**, and **MySQL**, designed to manage end-to-end order processing — including placing orders, updating stock, and notifying customers via email.
+A microservices-based backend system using **Spring Boot**, **Apache Kafka**, and **MySQL**, designed to manage end-to-end order processing — including placing orders, updating stock, and notifying customers.
 
 ---
 
@@ -64,35 +64,45 @@ springboot-kafka-microservices/
 ## 📌 How to Run
 
 ### Clone the Repository
+
 ```bash
 git clone https://github.com/nidhiKumari75/springboot-kafka-microservices.git
 cd springboot-kafka-microservices
+```
 
-Start with Docker (Recommended)
-bash
+### Start with Docker (Recommended)
+
+```bash
 docker-compose up --build
+```
 
-Or Run Services Manually
+### Or Run Services Manually
+
 Start MySQL and Kafka manually, then run each service:
-bash
+
+```bash
 cd order-service
 mvn spring-boot:run
-Repeat for stock-service and email-service.
+```
+Repeat for `stock-service` and `email-service`.
 
-🔧 Configuration
-🔹 Kafka (application.properties)
+---
+
+### 🔧 Configuration
+
+#### 🔹 Kafka (`application.properties`)
 properties
 spring.kafka.bootstrap-servers=localhost:9092
 spring.kafka.consumer.group-id=order_group
 spring.kafka.topic.name=order-topic
 
-🔹 MySQL (application.properties)
+#### 🔹 MySQL (`application.properties`)
 properties
 spring.datasource.url=jdbc:mysql://localhost:3306/order_details
 spring.datasource.username=root
 spring.datasource.password=yourpassword
 
-🔹 Email (email-service)
+#### 🔹 Email (`email-service`)
 properties
 spring.mail.host=smtp.gmail.com
 spring.mail.port=587
@@ -101,9 +111,13 @@ spring.mail.password=your_app_password
 spring.mail.properties.mail.smtp.auth=true
 spring.mail.properties.mail.smtp.starttls.enable=true
 
-📦 API Example
-➕ Place an Order
-POST /api/v1/orders
+---
+
+## 📦 API Example
+
+### ➕ Place an Order
+
+**POST** `/api/v1/orders`
 
 json
 {
@@ -111,3 +125,4 @@ json
   "quantity": 3,
   "price": 80000
 }
+````
