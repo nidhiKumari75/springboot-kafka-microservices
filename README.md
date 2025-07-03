@@ -31,11 +31,23 @@ This project demonstrates an asynchronous, event-driven architecture using Kafka
 
 springboot-kafka-microservices/
 │
-├── base-domains/ # Common DTOs used across services
-├── order-service/ # Publishes order events
-├── stock-service/ # Consumes events and updates stock
-├── email-service/ # Sends email notifications
-└── docker-compose.yml # For running services together
+├── base-domains/                  # Shared Data Transfer Objects (DTOs)
+│   └── src/main/java/.../dto/
+│
+├── order-service/                # Publishes order events to Kafka
+│   ├── src/main/java/.../        # Order service code
+│   └── src/main/resources/
+│       └── application.properties
+│
+├── stock-service/                # Consumes events and updates stock
+│   ├── src/main/java/.../
+│   └── src/main/resources/
+│       └── application.properties
+│
+└── email-service/                # Consumes events and sends emails
+    ├── src/main/java/.../
+    └── src/main/resources/
+        └── application.properties
 
 ---
 
